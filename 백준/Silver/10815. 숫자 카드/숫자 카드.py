@@ -1,9 +1,10 @@
 N = int(input())
-card = set(map(int,input().split()))
+arr1 = set(map(int, input().split()))
 M = int(input())
-compare = list(map(int,input().split()))
-for i in compare:
-    if i in card:
+arr2 = list(map(int, input().split()))
+
+for i in arr2:
+    if i in arr1:
         print(1,end=' ')
     else:
         print(0,end=' ')
