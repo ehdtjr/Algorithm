@@ -1,17 +1,16 @@
 n = int(input())
 
 arr=[]
+d={}
+
 for i in range(n):
     x,y=map(str,input().split())
-    arr.append(x)
+    if y=="enter":
+        d[x]=y
+    else:
+        del d[x]
 
-arr_cp=list(set(arr))
-arr_cp.sort(reverse=True)
-d={x:0 for x in arr_cp}
+a=sorted(d.keys(),reverse=True)
 
-for i in arr:
-    d[i]+=1
-
-for i in d.items():
-    if i[1]%2!=0:
-        print(i[0])
+for i in a:
+    print(i)
