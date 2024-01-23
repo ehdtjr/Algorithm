@@ -1,10 +1,12 @@
-n = int(input())
+import sys
+
+n = int(sys.stdin.readline())
 
 arr=[]
 d={}
 
 for i in range(n):
-    x,y=map(str,input().split())
+    x,y=map(str,sys.stdin.readline().split())
     if y=="enter":
         d[x]=y
     else:
