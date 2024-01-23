@@ -1,15 +1,11 @@
+#7785
 import sys
-
 n = int(sys.stdin.readline())
-
-arr=[]
-d={}
-
-for i in range(n):
-    x,y=map(str,sys.stdin.readline().split())
-    if y=="enter":
-        d[x]=y
+log = dict()
+for _ in range(n):
+    name, status = sys.stdin.readline().split()
+    if status == 'enter':
+        log[name] = True
     else:
-        del d[x]
-
-print('\n'.join(sorted(d.keys(),reverse=True)))
+        del log[name] #O(1)
+print('\n'.join(sorted(log.keys(), reverse = True)))
