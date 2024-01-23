@@ -10,7 +10,4 @@ for i in range(n):
     else:
         del d[x]
 
-a=sorted(d.keys(),reverse=True)
-
-for i in a:
-    print(i)
+print('\n'.join(sorted(d.keys(),reverse=True)))
