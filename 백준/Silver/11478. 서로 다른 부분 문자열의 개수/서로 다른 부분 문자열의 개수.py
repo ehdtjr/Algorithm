@@ -2,9 +2,6 @@ S = input()
 
 l=len(S)
 arr=[]
-d=dict
-
-sum=0
 
 for i in range(1,l+1):
     j=0
