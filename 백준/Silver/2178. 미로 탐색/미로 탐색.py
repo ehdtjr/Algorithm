@@ -1,37 +1,32 @@
 import sys
 from collections import deque
 
-N, M = map(int, sys.stdin.readline().split())
+n,m=map(int,sys.stdin.readline().split())
 
-miro = []
+miro=[list(map(int,sys.stdin.readline().rstrip()))for _ in range(n)]
 
-for i in range(N):
-    miro.append(list(map(int, sys.stdin.readline().rstrip())))
+dx=[0,0,1,-1]
+dy=[-1,1,0,0]
 
-cnt = 0
-max = N * M
-
-x = [0, 0, 1, -1]
-y = [-1, 1, 0, 0]
-
-
-def bfs(i, j):
-    que = deque([(i, j)])
+def bfs(x,y):
+    que=deque([(x,y)])
 
     while que:
-        a, b = que.popleft()
+        a,b=que.popleft()
 
-        for k in range(4):
-            dx = a + x[k]
-            dy = b + y[k]
+        if a==(n-1) and b==(m-1):
+            return miro[a][b]
 
-            if dx < 0 or dx >= N or dy < 0 or dy >= M:
+        for i in range(4):
+            px=a+dx[i]
+            py=b+dy[i]
+
+            if px<0 or px>=n or py<0 or py>=m:
                 continue
 
-            if miro[dx][dy] == 1:
-                miro[dx][dy]=miro[a][b]+1
-                que.append((dx, dy))
-                
-    return miro[N-1][M-1]
+            if miro[px][py]==1:
+                miro[px][py]=miro[a][b]+1
+                que.append((px,py))
 
-print(bfs(0, 0))
+
+print(bfs(0,0))
