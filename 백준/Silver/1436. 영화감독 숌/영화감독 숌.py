@@ -1,9 +1,10 @@
-N = int(input())
+import sys
 
-array=[0]
+n= int(sys.stdin.readline())
+arr=[0]
 
 for i in range(666,10000000):
-    if str(i).__contains__('666'):
-        array.append(i)
+    if '666' in str(i):
+        arr.append(i)
 
-print(array[N])
+print(arr[n])
