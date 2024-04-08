@@ -17,9 +17,9 @@ def union(a,b):
     b=find(b)
 
     if a>b:
-        parent[a]=b
-    else:
         parent[b]=a
+    else:
+        parent[a]=b
 
 for i in range(e):
     c,a,b=map(int,sys.stdin.readline().split())
