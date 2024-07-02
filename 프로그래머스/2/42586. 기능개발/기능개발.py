@@ -1,25 +1,26 @@
-import sys
 from collections import deque
 
 def solution(progresses, speeds):
     answer = []
-    que = deque(progresses)
-    speeds=deque(speeds)
-    cnt = 0
-    while que:
-        for i in range(len(que)):
-            que[i] += speeds[i]
+    cnt=0
+    
+    dq_p=deque(progresses)
+    dq_s=deque(speeds)
+    
+    while len(dq_p)!=0:
+        for i in range(len(dq_p)):
+            dq_p[i]+=dq_s[i]
 
-        while que:
-            if que[0]>=100:
-                que.popleft()
-                speeds.popleft()
-                cnt += 1
-            else:
+        while dq_p[0]>=100:
+            dq_p.popleft()
+            dq_s.popleft()
+            cnt+=1
+            
+            if len(dq_p)==0:
                 break
-
-        if cnt > 0:
+            
+        if cnt!=0:
             answer.append(cnt)
-            cnt = 0
-
+            cnt=0
+    
     return answer
